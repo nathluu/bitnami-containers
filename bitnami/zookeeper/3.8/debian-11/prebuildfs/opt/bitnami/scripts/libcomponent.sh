@@ -4,7 +4,8 @@
 
 # Constants
 CACHE_ROOT="/tmp/bitnami/pkg/cache"
-DOWNLOAD_URL="https://downloads.bitnami.com/files/stacksmith"
+# DOWNLOAD_URL="https://downloads.bitnami.com/files/stacksmith"
+DOWNLOAD_URL="http://10.0.2.15/files/stacksmith"
 
 # Functions
 
