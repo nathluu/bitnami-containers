@@ -248,6 +248,7 @@ zookeeper_generate_conf() {
     # If TLS in enable
     if is_boolean_yes "$ZOO_TLS_CLIENT_ENABLE"; then
         zookeeper_conf_set "$ZOO_CONF_FILE" client.secure true
+        zookeeper_conf_set "$ZOO_CONF_FILE" zookeeper.client.certReload true
         zookeeper_conf_set "$ZOO_CONF_FILE" ssl.clientAuth "$ZOO_TLS_CLIENT_AUTH"
         zookeeper_conf_set "$ZOO_CONF_FILE" secureClientPort "$ZOO_TLS_PORT_NUMBER"
         zookeeper_conf_set "$ZOO_CONF_FILE" serverCnxnFactory org.apache.zookeeper.server.NettyServerCnxnFactory
@@ -258,6 +259,7 @@ zookeeper_generate_conf() {
     fi
     if is_boolean_yes "$ZOO_TLS_QUORUM_ENABLE"; then
         zookeeper_conf_set "$ZOO_CONF_FILE" sslQuorum true
+        zookeeper_conf_set "$ZOO_CONF_FILE" sslQuorumReloadCertFiles true
         zookeeper_conf_set "$ZOO_CONF_FILE" ssl.quorum.clientAuth "$ZOO_TLS_QUORUM_CLIENT_AUTH"
         zookeeper_conf_set "$ZOO_CONF_FILE" serverCnxnFactory org.apache.zookeeper.server.NettyServerCnxnFactory
         zookeeper_conf_set "$ZOO_CONF_FILE" ssl.quorum.keyStore.location "$ZOO_TLS_QUORUM_KEYSTORE_FILE"
